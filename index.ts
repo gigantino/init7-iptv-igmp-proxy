@@ -1,14 +1,17 @@
+const welcomeMessage =
+	'Welcome to the init7-iptv-igmp-proxy!\nYou are missing some query parameters, make sure to provide the following:\n"host": The IP of your UDP Proxy (including the port)\n"protocol": "http" or "https"\n"type": "xspf" or "m3u"';
+
 export default {
 	async fetch(request: Request): Promise<Response> {
 		const reqUrl = new URL(request.url);
 		const reqParams = new URLSearchParams(reqUrl.search);
 
 		const host = reqParams.get("host");
-		if (!host) return new Response('The "host" parameter is missing.', { status: 400 });
+		if (!host) return new Response(welcomeMessage, { status: 400 });
 
 		const protocol = reqParams.get("protocol");
 		if (!protocol)
-			return new Response('The "protocol" parameter is missing.', {
+			return new Response(welcomeMessage, {
 				status: 400,
 			});
 		if (protocol !== "http" && protocol !== "https") {
@@ -17,7 +20,7 @@ export default {
 
 		const type = reqParams.get("type");
 		if (!type)
-			return new Response('The "type" parameter is missing.', {
+			return new Response(welcomeMessage, {
 				status: 400,
 			});
 		if (type !== "xspf" && type !== "m3u") {
