@@ -1,5 +1,5 @@
 const welcomeMessage =
-	'Welcome to the init7-iptv-igmp-proxy!\nYou are missing some query parameters, make sure to provide the following:\n"host": The IP of your UDP Proxy (including the port)\n"protocol": "http" or "https"\n"type": "xspf" or "m3u"';
+	'Welcome to the init7-iptv-igmp-proxy!\nYou are missing some query parameters, make sure to provide the following:\n"host": The IP of your UDP Proxy (including the port)\n"protocol": "http" or "https"\n"type": "xspf" or "m3u"\nhttps://github.com/gigantino/init7-iptv-igmp-proxy';
 
 export default {
 	async fetch(request: Request): Promise<Response> {
